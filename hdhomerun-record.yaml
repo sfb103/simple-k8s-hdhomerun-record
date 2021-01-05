@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hdhomerun-record 
+  labels:
+    name: hdhomerun-record 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: hdhomerun-record 
+  template:
+    metadata:
+      labels:
+        name: hdhomerun-record 
+    spec:
+      hostNetwork: true
+      volumes:
+      - hostPath:
+          path: /mnt/disks/recordings/HDHomeRun 
+        name: recordings 
+      containers:
+      - name: hdhomerun-record 
+        image: argos:5000/hdhomerun-record
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+        - mountPath: /HDHomeRun
+          name: recordings 
+        livenessProbe:
+          tcpSocket:
+            port: 46759 
+          initialDelaySeconds: 10
+          periodSeconds: 10 
+          failureThreshold: 12 
