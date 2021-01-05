@@ -21,7 +21,7 @@ spec:
         name: recordings 
       containers:
       - name: hdhomerun-record 
-        image: argos:5000/hdhomerun-record
+        image: hdhomerun-record
         imagePullPolicy: IfNotPresent
         volumeMounts:
         - mountPath: /HDHomeRun
