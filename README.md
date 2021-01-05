@@ -14,7 +14,7 @@ kubectl apply -f hdhomerun-record.yaml
 ```
 **Note**, The hdhomerun record engine currently assumes it's recordings are kept on the ```/mnt/disks/recordings/HDHomeRun``` host directory.
 
-Once the hdhomerun-record engine pod is ready on the cluster, you can test that it's visible through the following [link](http://my.hdhomerun.com/#tab-2).  If running normally, you should find:
+Once the hdhomerun-record engine pod is ready on the cluster, you can test that it's visible through the following [link](http://my.hdhomerun.com).  If running normally, you should find:
 ```
 HDHomeRun RECORD
   Version 20200907
